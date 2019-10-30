@@ -9,6 +9,7 @@ class Estoque : public Roupa {
    void MostraRoupas();
    void GuardaRoupas(const Roupa& r);
    void Exemplares( const int& id );
+ 
    Roupa* getRoupa( const int& id );
 
  protected:
