@@ -13,7 +13,3 @@ Venda::~Venda()
 
 {}
 
-// void Venda::GuardaVenda( Venda* v ) {
-
-//   this->vendas_.push_back( v );
-// }

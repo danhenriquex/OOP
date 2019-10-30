@@ -11,12 +11,9 @@ class Venda : public Cliente, public Estoque {
 
    void GuardaVenda( class Venda* v);
 
-   int getIdVenda( void ) const {return this->id_venda_;}
-
 //  private:
   Cliente c_;
   Roupa r_;
-  int id_venda_;
 };
 
 #endif // VENDA_H
