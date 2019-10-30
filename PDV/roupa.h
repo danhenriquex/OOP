@@ -11,9 +11,9 @@ class Roupa {
    Roupa( const int& cod, const int& tam, const int& qnt );
    virtual ~Roupa( void );
 
-   void setCod(const int& cod);
-   void setTam(const int& tam);
-   void setQnt(const int& qnt);
+   void setCod( const int& cod );
+   void setTam( const int& tam );
+   void setQnt( const int& qnt );
    inline int getCod( void ) const {return this->cod_;}
    inline int getTam( void ) const {return this->tam_;}
    inline int getQnt( void ) const {return this->qnt_;}
