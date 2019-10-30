@@ -2,7 +2,7 @@
 
 A simple code using Oriented Object Programming with C++.
 
-The description of the problem can be found [here](relatorio.pdf).
+The description of the problem can be found [here](ROTEIRO_-_PDV.pdf).
 
 # Compiling and Running
 
