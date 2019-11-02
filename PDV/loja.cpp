@@ -44,24 +44,28 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
   Cliente* c = this->getCliente( nome );
   Roupa* r = e.getRoupa( id );
 
-  if (qnt_venda <= r->getQnt() && id == r->getCod()) {
+  if (c != NULL && r != NULL) {
 
-    int qnt_atual = r->getQnt() - qnt_venda;
-    r->setQnt(qnt_atual);
+    if (qnt_venda <= r->getQnt() && id == r->getCod()) {
 
-    Venda* v = new Venda( c, r );
+      int qnt_atual = r->getQnt() - qnt_venda;
+      r->setQnt( qnt_atual );
 
-    this->GuardaVenda( v );
+      Venda* v = new Venda( c, r );
 
-    std::clog << "Compra feita." << std::endl;
+      this->GuardaVenda( v );
 
-  }else {
+      std::clog << "Compra feita." << std::endl;
 
-    std::clog << "=========================================" << std::endl;
-    std::clog << "Quantidade indisponivel ou Produto inexistente." << std::endl;  
-    std::clog << "=========================================" << std::endl;
+    }else {
 
-  }  
+      std::clog << "=========================================" << std::endl;
+      std::clog << "Quantidade indisponivel ou Produto inexistente." << std::endl;  
+      std::clog << "=========================================" << std::endl;
+
+    }  
+
+  }
 
 }
 

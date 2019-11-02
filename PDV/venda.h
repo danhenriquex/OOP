@@ -3,7 +3,7 @@
 
 #include "loja.h"
 
-class Venda : public Cliente, public Estoque {
+class Venda {
  public:
    Venda();
    Venda( Cliente* nome, Roupa* roupa );

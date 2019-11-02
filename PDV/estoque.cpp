@@ -16,32 +16,42 @@ Roupa* Estoque::getRoupa( const int& id ) {
 
   }
 
-  std::clog << "=================================== " << std::endl;
+  std::clog << "============================================= " << std::endl;
   std::clog << "\t Roupa nao cadastrada no sistema" << std::endl;  
-  std::clog << "=================================== " << std::endl;
+  std::clog << "============================================= " << std::endl;
 
   return NULL;
 }
 
 void Estoque::Exemplares( const int& id ) {
 
-  for (unsigned int i = 0; i < this->roupas_.size(); ++i) {
+  if (this->roupas_.size() != 0) {
 
-    Roupa& r = roupas_[i];
+    for (unsigned int i = 0; i < this->roupas_.size(); ++i) {
 
-    if (r.getCod() == id) {
+      Roupa& r = roupas_[i];
 
-      std::clog << "========= Exemplares ==========" << std::endl;
-      std::clog << "Quantidade: " << r.getQnt() << std::endl;
-      std::clog << "===============================" << std::endl; 
+      if (r.getCod() == id) {
+
+        std::clog << "========= Exemplares ==========" << std::endl;
+        std::clog << "ID: " << r.getCod() << "Quantidade: " << r.getQnt() << std::endl;
+        std::clog << "===============================" << std::endl; 
+
+      }
 
     }
 
-  }  
+  }else {
 
+    std::clog << "=============== Sem Exemplares ==============" << std::endl;
+    std::clog << "\t Produtos em falta" << std::endl;
+    std::clog << "=============================================" << std::endl;
+
+
+  }
 }
 
-void Estoque::MostraRoupas() {
+void Estoque::MostraRoupas( void ) {
 
   for (unsigned int i = 0; i < this->roupas_.size(); ++i) {
 
@@ -52,6 +62,14 @@ void Estoque::MostraRoupas() {
     std::cout << "Tamanho: " << r.getTam() << std::endl;
     std::cout << "Exemplares: " << r.getQnt() << std::endl;
     std::clog << "===========================================" << std::endl;
+
+  }
+
+  if (this->roupas_.size() == 0) {
+
+    std::clog << "=============== Sem Cadastro ================" << std::endl;
+    std::clog << "\t Nao ha roupas no estoque" << std::endl;
+    std::clog << "=============================================" << std::endl;
 
   }
 

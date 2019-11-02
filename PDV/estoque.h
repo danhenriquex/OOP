@@ -5,11 +5,10 @@
 
 class Estoque : public Roupa {
  public:
-   
-   void MostraRoupas();
+   void MostraRoupas( void );
    void GuardaRoupas(const Roupa& r);
    void Exemplares( const int& id );
- 
+
    Roupa* getRoupa( const int& id );
 
  protected:
