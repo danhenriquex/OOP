@@ -1,5 +1,5 @@
 #ifndef RETANGULO_H
-#define RETANGULO_
+#define RETANGULO_H
 
 class Retangulo {
   public:
