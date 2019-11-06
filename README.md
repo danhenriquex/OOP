@@ -14,4 +14,4 @@ I've compiled and executed this software only in Linux (Mint). These are the ste
 
 To execute the files, just issue the following command from the project root directory.
 
-    $ ./pdv 
+    $ ./pdv ./a.out
