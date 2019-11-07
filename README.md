@@ -1,8 +1,8 @@
 # POO - Oriented Object Programming
 
-A simple code using Oriented Object Programming with C++.
+Simple codes using Oriented Object Programming with C++.
 
-The description of the problem can be found [here](ROTEIRO_-_PDV.pdf).
+The description of the problems can be found [here](ROTEIRO_-_PDV.pdf).
 
 # Compiling and Running
 
@@ -14,4 +14,4 @@ I've compiled and executed this software only in Linux (Mint). These are the ste
 
 To execute the files, just issue the following command from the project root directory.
 
-    $ ./pdv ./a.out
+    $ ./pdv ./poligonos ./cadastro
