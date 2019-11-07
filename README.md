@@ -1,4 +1,4 @@
-# POO - Oriented Object Programming
+# OOP - Oriented Object Programming
 
 Simple codes using Oriented Object Programming with C++.
 
