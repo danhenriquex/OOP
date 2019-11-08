@@ -12,7 +12,7 @@ class Pessoa {
 
    void setNome( const std::string& novo_nome );
    void setIdade( const int& nova_idade );
-   void setTelefone (const std::string& novo_telefone );
+   void setTelefone ( const std::string& novo_telefone );
    
    std::string getNome ( void ) const {return this->nome_;}
    int getIdade( void ) const {return this->idade_;}
