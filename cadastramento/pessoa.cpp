@@ -4,7 +4,7 @@ Pessoa::Pessoa( void )
 
 {}
 
-Pessoa::Pessoa( const std::string& nome, const int& idade, const std::string& telefone)
+Pessoa::Pessoa( const std::string& nome, const int& idade, const std::string& telefone )
     : nome_(nome), idade_(idade), telefone_(telefone)
 
 {}
