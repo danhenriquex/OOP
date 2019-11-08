@@ -13,7 +13,7 @@ Pessoa::~Pessoa( void )
 
 {}
 
-void Pessoa::setNome( const std::string& novo_nome) {
+void Pessoa::setNome( const std::string& novo_nome ) {
 
   this->nome_ = novo_nome;
 }
