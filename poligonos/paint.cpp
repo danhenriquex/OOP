@@ -23,10 +23,10 @@ int Paint::PerimetroTotal( void ) {
 
   int perimetro_total = 0;
 
-   for (auto& quadrado : quadrados_) {
+  for (auto& quadrado : quadrados_) {
 
     perimetro_total += quadrado.Perimetro();
-
+    
   }
 
   for (auto& retangulo : retangulos_) {
