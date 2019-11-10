@@ -9,7 +9,7 @@ class Venda {
    Venda( Cliente* nome, Roupa* roupa );
    ~Venda();
 
-   void GuardaVenda( class Venda* v );
+   void GuardaVenda( class Venda* v);
 
 //  private:
   Cliente c_;

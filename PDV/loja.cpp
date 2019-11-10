@@ -19,12 +19,10 @@ void Loja::MostrarVenda( void ) {
 
 void Loja::MostraClientes( void ) {
 
-  for (unsigned int i = 0; i < this->clientes_.size(); ++i) {
-
-    Cliente& c = clientes_[i];
+  for (auto cliente : clientes_) {
 
     std::clog << "=============== Clientes ===============" << std::endl;
-    std::cout << "Nome: " << c.getName() << std::endl;
+    std::cout << "Nome: " << cliente.getName() << std::endl;
     std::clog << "========================================" << std::endl;
 
   }

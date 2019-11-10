@@ -15,7 +15,7 @@ class Loja : public Cliente {
    void RoupaCliente( const int& id ); // Quais foram as roupas comprados por um cliente?
    void GuardaCliente( const Cliente& c );
    void MostraClientes( void );
-   void GuardaVenda( class Venda* v);
+   void GuardaVenda( class Venda* v );
    void MostrarVenda( void );
 
    Cliente* getCliente( const std::string& nome );

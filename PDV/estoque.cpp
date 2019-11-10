@@ -1,8 +1,8 @@
 #include "estoque.h"
 
-void Estoque::GuardaRoupas( const Roupa& roupa ) {
+void Estoque::GuardaRoupas(const Roupa& roupa) {
 
-  this->roupas_.push_back( roupa );
+  this->roupas_.push_back(roupa);
 }
 
 Roupa* Estoque::getRoupa( const int& id ) {
@@ -34,7 +34,7 @@ void Estoque::Exemplares( const int& id ) {
       if (r.getCod() == id) {
 
         std::clog << "========= Exemplares ==========" << std::endl;
-        std::clog << "ID: " << r.getCod() << "Quantidade: " << r.getQnt() << std::endl;
+        std::clog << "ID: " << r.getCod() << " " << "Quantidade: " << r.getQnt() << std::endl;
         std::clog << "===============================" << std::endl; 
 
       }
@@ -53,14 +53,12 @@ void Estoque::Exemplares( const int& id ) {
 
 void Estoque::MostraRoupas( void ) {
 
-  for (unsigned int i = 0; i < this->roupas_.size(); ++i) {
-
-    Roupa& r = roupas_[i];
+  for (auto roupa : roupas_) {
 
     std::clog << "================ Roupas =================== " << std::endl;
-    std::cout << "ID: " << r.getCod() << std::endl;
-    std::cout << "Tamanho: " << r.getTam() << std::endl;
-    std::cout << "Exemplares: " << r.getQnt() << std::endl;
+    std::cout << "ID: " << roupa.getCod() << std::endl;
+    std::cout << "Tamanho: " << roupa.getTam() << std::endl;
+    std::cout << "Exemplares: " << roupa.getQnt() << std::endl;
     std::clog << "===========================================" << std::endl;
 
   }
