@@ -44,10 +44,12 @@ int main( void ) {
     switch (op) {
 
       case 1:
+        system("clear");
         cp.ImprimeDados();
         break;
     
       case 2:
+        system("clear");
         cp.ImprimeMediaIdade();
         break;
 

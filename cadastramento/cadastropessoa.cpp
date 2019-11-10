@@ -10,22 +10,20 @@ CadastroPessoa::~CadastroPessoa( void )
 
 void CadastroPessoa::ImprimeDados( void ) {
 
-  system("clear");
-
   if (this->pessoas_.size() != 0) {
 
-    std::clog << "==========================================" << std::endl;
+    std::clog << "==========================================\n" << std::endl;
 
-    for (int i = 0; i < this->pessoas_.size(); ++i) {
+    for (auto pessoa: pessoas_) {
 
-      Pessoa& p = pessoas_[i];
+      std::clog << "Nome: " << pessoa.getNome() << std::endl;
+      std::clog << "Idade: " << pessoa.getIdade() << std::endl;
+      std::clog << "Telefone: " << pessoa.getTelefone() << std::endl;
+      printf("\n");
 
-      std::cout << "Nome: " << p.getNome() << std::endl;
-      std::cout << "Idade: " << p.getIdade() << std::endl;
-      std::cout << "Telefone: " << p.getTelefone() << std::endl;
-
-      std::clog << "==========================================" << std::endl;
     }
+    
+    std::clog << "==========================================" << std::endl;
 
   }else {
 
@@ -44,17 +42,13 @@ void CadastroPessoa::ImprimeMediaIdade( void ) {
   float media = 0;
   float soma = 0;
 
-  system("clear");
-
   if (this->pessoas_.size() != 0) {
 
     std::clog << "==========================================" << std::endl;    
 
-    for (int i = 0; i < this->pessoas_.size(); ++i) {
+    for (auto pessoa : pessoas_) {
 
-      Pessoa& p = pessoas_[i];
-
-      soma = soma + p.getIdade();
+      soma += pessoa.getIdade();
 
     }
 
