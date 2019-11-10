@@ -4,17 +4,15 @@ int Paint::AreaTotal( void ) {
 
   int area_total = 0;
 
-  for (int i = 0; i < this->quadrados_.size(); ++i) {
+  for (auto& quadrado : quadrados_) {
 
-    Quadrado& q = quadrados_[i];
-    area_total += q.Area();
+    area_total += quadrado.Area();
 
   }
 
-  for (int i = 0; i < this->retangulos_.size(); ++i) {
+  for (auto& retangulo : retangulos_) {
 
-    Retangulo& r = retangulos_[i];
-    area_total += r.Area();
+    area_total += retangulo.Area();
 
   }
 
@@ -25,17 +23,15 @@ int Paint::PerimetroTotal( void ) {
 
   int perimetro_total = 0;
 
-  for (int i = 0; i < this->quadrados_.size(); ++i) {
+   for (auto& quadrado : quadrados_) {
 
-    Quadrado& q = quadrados_[i];
-    perimetro_total += q.Perimetro();
+    perimetro_total += quadrado.Perimetro();
 
   }
 
-  for (int i = 0; i < this->retangulos_.size(); ++i) {
+  for (auto& retangulo : retangulos_) {
 
-    Retangulo& r = retangulos_[i];
-    perimetro_total += r.Perimetro();
+    perimetro_total += retangulo.Perimetro();
 
   }
 

@@ -1,5 +1,3 @@
-#include <iostream>
-#include "quadrado.h"
 #include "paint.h"
 
 int main( void ) {
