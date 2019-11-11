@@ -17,7 +17,7 @@ class Heap {
    inline int LeftChild( const int& index );
    inline int RightChild( const int& index );
    void MaxHeapify( const int& index ); // procedure, which runs in O(lg(n)) time, is the key to maintaining the max-heap property.
-   void BuidMaxHeap( void ); // procedure, which runs in linear time, produces a maxheap from an unordered input array.
+   void BuildMaxHeap( void ); // procedure, which runs in linear time, produces a maxheap from an unordered input array.
    void HeapSort( void ); // procedure, which runs in O(nlg(n)) time, sorts an array in place.
    void Print( void );
 
