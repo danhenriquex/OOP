@@ -8,7 +8,7 @@ Heap::Heap( const int& length ) : length_(length), size_(0) {
 
   this->heap_ = new int[this->length_];
 
-  for(int i = this->length_; i > 0; i--)
+  for(int i = this->length_; i > 0; --i)
     this->heap_[this->length_ - i] = i;
 
 }
