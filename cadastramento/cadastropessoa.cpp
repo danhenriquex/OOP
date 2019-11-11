@@ -14,7 +14,7 @@ void CadastroPessoa::ImprimeDados( void ) {
 
     std::clog << "==========================================\n" << std::endl;
 
-    for (auto pessoa: pessoas_) {
+    for (auto& pessoa: pessoas_) {
 
       std::clog << "Nome: " << pessoa.getNome() << std::endl;
       std::clog << "Idade: " << pessoa.getIdade() << std::endl;
@@ -46,7 +46,7 @@ void CadastroPessoa::ImprimeMediaIdade( void ) {
 
     std::clog << "==========================================" << std::endl;    
 
-    for (auto pessoa : pessoas_) {
+    for (auto& pessoa : pessoas_) {
 
       soma += pessoa.getIdade();
 
