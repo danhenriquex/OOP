@@ -92,7 +92,7 @@ void Heap::MaxHeapify( const int& index ) {
 
 }
 
-void Heap::BuidMaxHeap( void ) {
+void Heap::BuildMaxHeap( void ) {
 
   this->size_ = this->length_;
 
@@ -103,7 +103,7 @@ void Heap::BuidMaxHeap( void ) {
 
 void Heap::HeapSort( void ) {
 
-  BuidMaxHeap();
+  BuildMaxHeap();
 
   for (int i = (this->length_-1); i > 0; --i) {
 
