@@ -4,7 +4,7 @@ class Tocador {
  public:
    void Tocar( void );
    void Pausar( void );
-   void parar( void );
+   void Parar( void );
    static Tocador* getInstance( const int& tipo ); // método de classe
    int tipo_;
 
