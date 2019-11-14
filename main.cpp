@@ -34,7 +34,8 @@ void Tocador::Pausar( void ) {
 }
 
 Tocador* Tocador::getInstance( const int& tipo ) { // Método que garante a instância da classe apenas uma vez
-  if (t == NULL) 
+  
+ if (t == NULL) 
     t = new Tocador( tipo );
 
   return t;
