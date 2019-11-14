@@ -10,10 +10,10 @@ class Tocador {
 
  private:
    Tocador( const int& tipo );
-   static Tocador* t; //Variável de classe
+   static Tocador* t_; //Variável de classe
 };
 
-Tocador* Tocador::t = NULL;
+Tocador* Tocador::t_ = NULL;
 
 Tocador::Tocador( const int& tipo ) : tipo_(tipo) {
 
@@ -35,10 +35,10 @@ void Tocador::Pausar( void ) {
 
 Tocador* Tocador::getInstance( const int& tipo ) { // Método que garante a instância da classe apenas uma vez
   
- if (t == NULL) 
-    t = new Tocador( tipo );
+ if (t_ == NULL) 
+    t_ = new Tocador( tipo );
 
-  return t;
+  return t_;
 }
 
 int main( void ) {
