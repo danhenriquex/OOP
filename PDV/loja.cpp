@@ -19,7 +19,7 @@ void Loja::MostrarVenda( void ) {
 
 void Loja::MostraClientes( void ) {
 
-  for (auto cliente : clientes_) {
+  for (auto& cliente : clientes_) {
 
     std::clog << "=============== Clientes ===============" << std::endl;
     std::cout << "Nome: " << cliente.getName() << std::endl;
