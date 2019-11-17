@@ -15,8 +15,6 @@ Heap::Heap( const int& length ) : length_(length), size_(0) {
 
 Heap::Heap( const std::string& file ) : size_(0) {
 
-  std::string lines;
-
   std::ifstream myfile( file );
 
   if (myfile.is_open()) {
