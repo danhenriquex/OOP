@@ -6,6 +6,7 @@ The description of the problems can be found above:
 
 Pdv's problem [here](ROTEIRO_-_PDV.pdf) <br />
 Classes [here](ROTEIRO_-_Classes.pdf).
+Bank Account [here](Roteiro_Conta_Poupanca.pdf).
 
 # Compiling and Running
 
