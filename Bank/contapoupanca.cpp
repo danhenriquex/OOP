@@ -34,7 +34,7 @@ void ContaPoupanca::Depositar( const float& value ) {
 
   float juros = (value * 0.1f); // Ajeitar o getSaldo()
 
-  this->saldo_  += + (value - juros);  
+  this->saldo_  += + (value + juros);  
 
 }
 
