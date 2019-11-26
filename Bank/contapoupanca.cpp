@@ -26,31 +26,23 @@ void ContaPoupanca::EmitirExtrato( void ) {
 
 void ContaPoupanca::Depositar( const float& value ) {
 
-  Deposito p;
-  Juros j;
-  
-  p.SetValor( value );
-  j.SetValor( value );
-
-  Transacao* t1 = new Deposito( p );
-  Transacao* t2 = new Juros( j );
+  Transacao* t1 = new Deposito( value );
+  Transacao* t2 = new Juros( value );
 
   this->GuardaTransacao( t1 );
   this->GuardaTransacao( t2 );
 
-  this->saldo_ += (value * 0.1f);  
+  float juros = (value * 0.1f); // Ajeitar o getSaldo()
+
+  this->saldo_  += + (value - juros);  
 
 }
 
 void ContaPoupanca::Sacar( const float& value ) {
 
-  Saque s;
-
   if (value <= this->saldo_) {
 
-    s.SetValor( value );
-
-    Transacao* t1 = new Saque( s );
+    Transacao* t1 = new Saque( value );
 
     this->GuardaTransacao( t1 );
     

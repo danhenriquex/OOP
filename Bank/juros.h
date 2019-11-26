@@ -7,6 +7,8 @@
 
 class Juros : public Transacao {
  public:
+   Juros( const float& value );
+
    void EmitirExtrato( void );
 
    void SetValor( const float& value );

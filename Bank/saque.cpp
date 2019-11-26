@@ -1,12 +1,12 @@
 #include "saque.h"
 
-Saque::Saque( void ) : value_(0)
+Saque::Saque( const float& value ) : value_(-value)
 
 {}
 
 void Saque::EmitirExtrato( void ) {
 
-  std::cout << "Ultimo valor sacado: " << this->value_ << std::endl;
+  std::cout << "Saque: " << this->value_ << std::endl;
 
 }
 

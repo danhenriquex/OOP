@@ -7,11 +7,12 @@
 
 class Deposito : public Transacao {
  public:
+   Deposito( const float& value );
 
    void EmitirExtrato( void );
    
    void SetValor( const float& value );
-   float GetValor( void ) const {return this->value_;};
+   
   //  float GetSaldo( void );
 
  private:

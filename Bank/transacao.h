@@ -5,8 +5,7 @@
 
 class Transacao {
  public:
-   virtual float GetSaldo( void );
-   virtual void EmitirExtrato( void );
+   virtual void EmitirExtrato( void ) = 0;
 };
 
 #endif

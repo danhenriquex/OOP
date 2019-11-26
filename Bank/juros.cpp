@@ -1,8 +1,12 @@
 #include "juros.h"
 
+Juros::Juros( const float& value ) : value_(value)
+
+{}
+
 void Juros::EmitirExtrato( void ) {
 
-  std::cout << "Juros em relacao ao ultimo deposito: " << this->value_*(0.1f) << std::endl;
+  std::cout << "Juros: " << this->value_*(0.1f) << std::endl;
 
 }
 

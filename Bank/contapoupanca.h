@@ -19,10 +19,10 @@ class ContaPoupanca {
 
    void GuardaTransacao( Transacao* t );
 
-   float GetSaldo( void ) const {return this->saldo_;}
+   float GetSaldo( void ) {return this->saldo_;}
 
  private:
-   float saldo_;
+   float saldo_ = 0;
    std::vector<Transacao*> transacoes_;
 };
 

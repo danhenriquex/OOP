@@ -1,8 +1,12 @@
 #include "deposito.h"
 
+Deposito::Deposito( const float& value ) : value_(value) 
+
+{}
+
 void Deposito::EmitirExtrato( void ) {
 
-  std::cout << "Ultimo deposito realizado: " << this->value_ << std::endl; 
+  std::cout << "Deposito: +" << this->value_ << std::endl; 
 
 }
 

@@ -17,6 +17,7 @@ int main( void ) {
 
       case 1:
         system("clear");
+
         std::cout << "Valor para deposito: ";
         std::cin >> valor;
 
@@ -25,6 +26,7 @@ int main( void ) {
 
       case 2:
         system("clear");
+
         std::cout << "Valor para saque: ";
         std::cin >> valor;
 
@@ -33,6 +35,7 @@ int main( void ) {
 
       case 3:
         system("clear");
+        
         cp.EmitirExtrato();
         break;
 

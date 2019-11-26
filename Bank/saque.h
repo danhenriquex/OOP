@@ -7,7 +7,7 @@
 
 class Saque : public Transacao {
  public:
-   Saque( void );
+   Saque( const float& value );
 
    void EmitirExtrato( void );
    
