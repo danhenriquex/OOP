@@ -1,4 +1,4 @@
-#include "paintbrush.h"
+#include "main.h"
 
 int main( void ) {
 
@@ -6,12 +6,7 @@ int main( void ) {
 
   while (!false) {
 
-    printf("1. Criar Quadrado.\n");
-    printf("2. Criar Circulo.\n");
-    printf("3. Criar Retangulo.\n");
-    printf("4. Fornecer as somas das areas.\n");
-    printf("5. Fornecer a soma dos perimetros.\n");
-    printf("6. Exit.\n");
+    Menu::Menu();
 
     int op;
     std::cin >> op;
@@ -31,9 +26,9 @@ int main( void ) {
         std::clog << "Insira o lado do Quadrado: ";
         std::cin >> lado;
 
-        q = new Quadrado(lado);
+        q = new Quadrado( lado );
 
-        pb.adiciona(q);
+        pb.adiciona( q );
         break;
 
     case 2:
@@ -41,9 +36,9 @@ int main( void ) {
         std::clog << "Qual o raio do Circulo: ";
         std::cin >> raio;
 
-        c = new Circulo(raio);
+        c = new Circulo( raio );
 
-        pb.adiciona(c);
+        pb.adiciona( c );
 
         break;
 
@@ -55,9 +50,9 @@ int main( void ) {
         std::clog << "Insira a base do retangulo: ";
         std::cin >> base;
 
-        r = new Retangulo(altura, base);
+        r = new Retangulo( altura, base );
 
-        pb.adiciona(r);
+        pb.adiciona( r );
 
         break;
 
