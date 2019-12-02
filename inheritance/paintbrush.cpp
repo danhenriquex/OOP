@@ -1,6 +1,6 @@
 #include "paintbrush.h"
 
-float PaintBrush::CalculaAreaPoligonos() {
+float PaintBrush::CalculaAreaPoligonos( void ) {
 
   float area_total = 0;
 
@@ -13,7 +13,7 @@ float PaintBrush::CalculaAreaPoligonos() {
   return area_total;
 }
 
-float PaintBrush::CalculaPerimetro() {
+float PaintBrush::CalculaPerimetro( void ) {
 
   float perimetro_total = 0;
 
@@ -26,7 +26,7 @@ float PaintBrush::CalculaPerimetro() {
   return perimetro_total;
 }
 
-void PaintBrush::adiciona(Poligono* p) {
+void PaintBrush::adiciona( Poligono* p ) {
 
-  this->poligonos_.push_back(p);
+  this->poligonos_.push_back( p );
 }

@@ -1,8 +1,8 @@
 #include "paintbrush.h"
 
-int main(void) {
+int main( void ) {
 
-  PaintBrush pb;
+  PaintBrush pb; 
 
   while (!false) {
 
@@ -62,15 +62,11 @@ int main(void) {
         break;
 
     case 4:
-
         std::cout << "A area dos poligonos eh: " << pb.CalculaAreaPoligonos() << std::endl;
-
         break;
 
     case 5:
-
         std::cout << "O perimetro dos poligonos eh: " << pb.CalculaPerimetro() << std::endl;
-
         break;
 
     case 6:

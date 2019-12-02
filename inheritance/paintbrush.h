@@ -8,9 +8,9 @@
 
 class PaintBrush {
  public:
-   float CalculaAreaPoligonos();
-   float CalculaPerimetro();
-   void adiciona(Poligono* p);
+   float CalculaAreaPoligonos( void );
+   float CalculaPerimetro( void );
+   void adiciona( Poligono* p );
 
  private:
    std::vector<Poligono*> poligonos_;

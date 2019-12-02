@@ -1,20 +1,20 @@
 #include "circulo.h"
 
-Circulo::Circulo(float raio) : raio_(raio) {
+Circulo::Circulo( const float& raio ) : raio_(raio) 
 
-}
+{}
 
-float Circulo::getRaio() const {
+float Circulo::getRaio( void ) const {
 
   return this->raio_;
 }
 
-float Circulo::getArea() const {
+float Circulo::getArea( void ) const {
 
   return (M_PI * pow(this->raio_, 2));
 }
 
-float Circulo::getPerimetro() const {
+float Circulo::getPerimetro( void ) const {
 
   return ((2 * M_PI) * this->raio_);
 }

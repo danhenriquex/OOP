@@ -5,11 +5,11 @@
 
 class Circulo : public Poligono {
  public:
-   Circulo(float raio);
+   Circulo( const float& raio );
  
-   float getRaio() const;
-   float getArea() const;
-   float getPerimetro() const;
+   float getRaio( void ) const;
+   float getArea( void ) const;
+   float getPerimetro( void ) const;
 
  private:
    float raio_;

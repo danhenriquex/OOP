@@ -1,16 +1,16 @@
 #include "retangulo.h"
 
-Retangulo::Retangulo(float altura, float base)
-    : altura_(altura), base_(base) {
+Retangulo::Retangulo( const float& altura, const float& base )
+    : altura_(altura), base_(base) 
 
-}
+{}
 
-float Retangulo::getArea() const {
+float Retangulo::getArea( void ) const {
 
   return (this->base_ * this->altura_);
 }
 
-float Retangulo::getPerimetro() const {
+float Retangulo::getPerimetro( void ) const {
 
   return 2*(this->base_ * this->altura_);
 }

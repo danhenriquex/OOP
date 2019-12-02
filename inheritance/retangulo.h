@@ -5,14 +5,14 @@
 
 class Retangulo : public Poligono {
  public:
-   Retangulo(float altura, float base);
+   Retangulo( const float& altura, const float& base );
 
-   float getArea() const;
-   float getPerimetro() const;
+   float getArea( void ) const;
+   float getPerimetro( void ) const;
 
  private:
-   float altura_ = 0;
-   float base_ = 0; 
+   float altura_;
+   float base_; 
 };
 
 #endif // _RETANGULO_H_
