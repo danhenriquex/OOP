@@ -4,16 +4,13 @@
 #include <cmath>
 #include <iostream>
 #include <vector>
-#include <memory>
 
 class Poligono {
  public:
-   virtual ~Poligono() {}
+   virtual ~Poligono( void ) {}
 
-   virtual float getArea() const = 0;
-   virtual float getPerimetro() const = 0;
-
-  //  typedef std::unique_ptr< Poligono > PoligonoUnique;
+   virtual float getArea( void ) const = 0;
+   virtual float getPerimetro( void ) const = 0;
 
  protected:
   float area_ = 0;
