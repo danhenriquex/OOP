@@ -1,6 +1,6 @@
 #include "quadrado.h"
 
-Quadrado::Quadrado( const float& lado )  : lado_(lado)
+Quadrado::Quadrado( const float& lado)  : lado_(lado)
 
 {}
 
