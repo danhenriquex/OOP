@@ -4,7 +4,7 @@ Venda::Venda()
 
 {}
 
-Venda::Venda( Cliente* nome, Roupa* roupa ) 
+Venda::Venda( Cliente* nome, Roupa* roupa) 
     : c_(*nome), r_(*roupa)
 
 {}

@@ -8,7 +8,7 @@
 
 class Loja : public Cliente { 
  public:
-   Loja();
+   Loja( void );
 
    void CadastraVenda( Estoque& e, const std::string& nome, const int& id, const int& qnt_venda ); 
    void ClienteRoupa( const std::string& cliente ); // Quais são os clientes que já compraram uma determinada roupa?

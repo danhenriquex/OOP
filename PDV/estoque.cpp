@@ -53,7 +53,7 @@ void Estoque::Exemplares( const int& id ) {
 
 void Estoque::MostraRoupas( void ) {
 
-  for (auto& roupa : roupas_) {
+  for (auto const& roupa : roupas_) {
 
     std::clog << "================ Roupas =================== " << std::endl;
     std::cout << "ID: " << roupa.getCod() << std::endl;

@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main( void ) {
+int main(void) {
 
   Estoque e;
   Loja j;
@@ -21,7 +21,6 @@ int main( void ) {
     switch (op) {
 
     case 1:
-      system("clear");
       std::clog << "Digite o nome do cliente: ";
       std::cin >> nome;
 
@@ -32,7 +31,6 @@ int main( void ) {
       break;
 
     case 2:
-      system("clear");
       std::clog << "Digite o ID da roupa: ";
       std::cin >> id;
       std::clog << "Digite o tamanho da roupa: ";
@@ -47,17 +45,14 @@ int main( void ) {
       break;
 
     case 3: 
-      system("clear");
       j.MostraClientes();
       break;
 
     case 4:
-      system("clear");
       e.MostraRoupas();
       break;
 
     case 5:
-      system("clear");
       std::clog << "Digite o Nome do Cliente: ";
       std::cin >> nome;
       std::clog << "Digite o ID: ";
@@ -70,7 +65,6 @@ int main( void ) {
       break;
 
     case 6:
-      system("clear");
       std::clog << "Digite o nome do cliente: ";
       std::cin >> nome;
 
@@ -79,7 +73,6 @@ int main( void ) {
       break;
 
     case 7:
-      system("clear");
       std::clog << "Digite o ID da roupa: ";
       std::cin >> id;
 
@@ -88,7 +81,6 @@ int main( void ) {
       break;
       
     case 8:
-      system("clear");
       std::clog << "Digite o ID da roupa: ";
       std::cin >> id;
 

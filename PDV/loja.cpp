@@ -1,6 +1,6 @@
 #include "loja.h"
 
-Loja::Loja() 
+Loja::Loja( void ) 
   
 {}
 
@@ -19,7 +19,7 @@ void Loja::MostrarVenda( void ) {
 
 void Loja::MostraClientes( void ) {
 
-  for (auto& cliente : clientes_) {
+  for (auto const& cliente : clientes_) {
 
     std::clog << "=============== Clientes ===============" << std::endl;
     std::cout << "Nome: " << cliente.getName() << std::endl;
@@ -52,8 +52,10 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
       Venda* v = new Venda( c, r );
 
       this->GuardaVenda( v );
-
-      std::clog << "Compra feita." << std::endl;
+      
+      std::clog << "=========================================" << std::endl;
+      std::clog << "\t Compra feita." << std::endl;
+      std::clog << "=========================================" << std::endl;
 
     }else {
 
@@ -69,14 +71,15 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
 
 void Loja::ClienteRoupa( const std::string& cliente ) {
 
+  std::clog << "============================" << std::endl;
+  std::cout << "Cliente: " << cliente << std::endl;
+
   for (unsigned int i = 0; i < this->vendas_.size(); ++i) {
 
     Venda* v = vendas_[i];
 
     if (v->c_.getName() == cliente) {
 
-      std::clog << "============================" << std::endl;
-      std::cout << "Cliente: " << cliente << std::endl;
       std::clog << "===== Roupas compradas =====" << std::endl;
       std::cout << "ID: " << v->r_.getCod() << " ";
       printf("\n"); 
@@ -89,14 +92,15 @@ void Loja::ClienteRoupa( const std::string& cliente ) {
 
 void Loja::RoupaCliente( const int& id ) {
 
+  std::clog << "===========================================" << std::endl;
+  std::cout << "\t ID da roupa: " << id << std::endl;
+
   for (unsigned int i = 0; i < this->vendas_.size(); ++i) {
 
     Venda* v = vendas_[i];
 
     if (v->r_.getCod() == id) {
-
-      std::clog << "===========================================" << std::endl;
-      std::cout << "\t ID da roupa: " << id << std::endl;
+      
       std::clog << "========= Clientes que compraram ==========" << std::endl;
       std::cout << "Nome: " << v->c_.getName() << std::endl;
 
