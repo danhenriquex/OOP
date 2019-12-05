@@ -131,7 +131,7 @@ void Loja::GuardaVenda( class Venda* v ) {
 
 void Loja::GuardaCliente( const Cliente& c ) {
 
-  this->clientes_.push_back(c);
+  this->clientes_.push_back( c );
 }
 
 
