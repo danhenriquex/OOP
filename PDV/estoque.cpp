@@ -1,6 +1,6 @@
 #include "estoque.h"
 
-void Estoque::GuardaRoupas(const Roupa& roupa) {
+void Estoque::GuardaRoupas( const Roupa& roupa ) {
 
   this->roupas_.push_back( roupa );
 }
