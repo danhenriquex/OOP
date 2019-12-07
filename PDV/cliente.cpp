@@ -9,7 +9,7 @@ Cliente::Cliente( const std::string& name )
 
 {}
 
-Cliente::~Cliente() 
+Cliente::~Cliente( void ) 
 
 {}
 

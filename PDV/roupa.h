@@ -7,7 +7,7 @@
 
 class Roupa {
  public:
-   Roupa();
+   Roupa( void );
    Roupa( const int& cod, const int& tam, const int& qnt );
    virtual ~Roupa( void );
 

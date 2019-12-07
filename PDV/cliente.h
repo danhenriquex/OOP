@@ -9,7 +9,7 @@ class Cliente {
  public:
    Cliente();
    Cliente( const std::string& name );
-   virtual ~Cliente();
+   virtual ~Cliente( void );
 
    void setName( const std::string& name );
    inline std::string getName( void ) const {return this->name_;}

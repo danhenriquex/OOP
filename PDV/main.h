@@ -3,6 +3,7 @@
 namespace Menu {
 
 void Menu( void ) {
+
   std::clog << "1. Cadastrar Cliente." << std::endl;
   std::clog << "2. Cadastrar roupa." << std::endl;
   std::clog << "3. Clientes cadastrados." << std::endl;
@@ -12,6 +13,7 @@ void Menu( void ) {
   std::clog << "7. Clientes que ja compraram uma roupa." << std::endl;
   std::clog << "8. Exemplares de uma roupa: " << std::endl;
   std::clog << "9. Exit." << std::endl;
+  
 }
 
 }

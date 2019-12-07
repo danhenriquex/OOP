@@ -2,7 +2,7 @@
 
 void Estoque::GuardaRoupas(const Roupa& roupa) {
 
-  this->roupas_.push_back(roupa);
+  this->roupas_.push_back( roupa );
 }
 
 Roupa* Estoque::getRoupa( const int& id ) {

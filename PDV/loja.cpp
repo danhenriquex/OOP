@@ -47,6 +47,7 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
     if (qnt_venda <= r->getQnt() && id == r->getCod()) {
 
       int qnt_atual = r->getQnt() - qnt_venda;
+      
       r->setQnt( qnt_atual );
 
       Venda* v = new Venda( c, r );
@@ -59,9 +60,9 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
 
     }else {
 
-      std::clog << "=========================================" << std::endl;
-      std::clog << "Quantidade indisponivel ou Produto inexistente." << std::endl;  
-      std::clog << "=========================================" << std::endl;
+      std::clog << "=================================================" << std::endl;
+      std::clog << "\t Quantidade indisponivel" << std::endl;  
+      std::clog << "=================================================" << std::endl;
 
     }  
 
@@ -71,7 +72,7 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
 
 void Loja::ClienteRoupa( const std::string& cliente ) {
 
-  std::clog << "============================" << std::endl;
+  std::clog << "============================================" << std::endl;
   std::cout << "Cliente: " << cliente << std::endl;
 
   for (unsigned int i = 0; i < this->vendas_.size(); ++i) {
@@ -88,6 +89,14 @@ void Loja::ClienteRoupa( const std::string& cliente ) {
 
   }
 
+  if (this->vendas_.size() == 0) {
+
+    std::clog << "===========================================" << std::endl;
+    std::clog << "\t Sem registro de vendas" << std::endl;  
+    std::clog << "===========================================" << std::endl;
+
+  }
+  
 }
 
 void Loja::RoupaCliente( const int& id ) {
@@ -105,6 +114,14 @@ void Loja::RoupaCliente( const int& id ) {
       std::cout << "Nome: " << v->c_.getName() << std::endl;
 
     }
+
+  }
+
+  if (this->vendas_.size() == 0) {
+
+    std::clog << "===========================================" << std::endl;
+    std::clog << "\t Sem registro de vendas" << std::endl;  
+    std::clog << "===========================================" << std::endl;
 
   }
 

@@ -9,8 +9,6 @@ class Venda {
    Venda( Cliente* nome, Roupa* roupa );
    ~Venda();
 
-   void GuardaVenda( class Venda* v);
-
 //  private:
   Cliente c_;
   Roupa r_;

@@ -1,15 +1,15 @@
 #include "roupa.h"
 
-Roupa::Roupa() {
-  
-}
+Roupa::Roupa( void )
+
+{}
 
 Roupa::Roupa( const int& cod, const int& tam, const int& qnt ) 
     : cod_(cod), tam_(tam), qnt_(qnt)
 
 {}
 
-Roupa::~Roupa() {
+Roupa::~Roupa( void ) {
 
 }
 
