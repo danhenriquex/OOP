@@ -2,8 +2,8 @@
 
 int main( int argc, char** argv ) {
 
-  std::string directory("instancias-num/");
-  directory += argv[1];
+  // std::string directory("instancias-num/");
+  // directory += argv[1];
 
   Heap heap( directory );
 
