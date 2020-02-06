@@ -50,3 +50,13 @@ NumeroComplexo NumeroComplexo::operator/( NumeroComplexo& nc ) {
 
   return aux;
 }
+
+std::ostream& operator<<( std::ostream& os, NumeroComplexo& nc ) {
+
+  os << " " << nc.getReal() << "+" << nc.getImag() << "i" << std::endl;	
+
+}
+
+
+
+

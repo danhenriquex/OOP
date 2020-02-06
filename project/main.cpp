@@ -13,7 +13,7 @@ int main( void ) {
     int op;
     std::cin >> op;
     
-    NumeroComplexo cs;
+    NumeroComplexo c1, c2, c3;
     
     int real, imag;
     
@@ -26,11 +26,97 @@ int main( void ) {
       	std::cout << "Digite um numero imaginario: " << std::endl;
       	std::cin >> imag;
       	
-        cs = NumeroComplexo( real, imag );
+      	c1 = NumeroComplexo( real, imag );
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+        c2 = NumeroComplexo( real, imag );
+        
+        c3 = c1 + c2;
+        
+        //std::cout << " " << c3.getReal() << "+" << c3.getImag() << "i" << std::endl;
+        
+        std::cout << "Resultado: " << c3;
+        
         break;
         
+      case 2:
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+      	c1 = NumeroComplexo( real, imag );
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+        c2 = NumeroComplexo( real, imag );
+        
+        c3 = c1 - c2;
+        
+        //std::cout << " " << c3.getReal() << "+" << c3.getImag() << "i" << std::endl;
+        
+        std::cout << "Resultado: " << c3;
+        
+        break;
+        
+      case 3:
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+      	c1 = NumeroComplexo( real, imag );
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+        c2 = NumeroComplexo( real, imag );
+        
+        c3 = c1 * c2;
+        
+        //std::cout << " " << c3.getReal() << "+" << c3.getImag() << "i" << std::endl;
+        
+        std::cout << "Resultado: " << c3;
+        
+      	break;
+      	
+      case 4:
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+      	c1 = NumeroComplexo( real, imag );
+      	
+      	std::cout << "Digite um numero real: " << std::endl;
+      	std::cin >> real;
+      	std::cout << "Digite um numero imaginario: " << std::endl;
+      	std::cin >> imag;
+      	
+        c2 = NumeroComplexo( real, imag );
+        
+        c3 = c1 / c2;
+        
+        //std::cout << " " << c3.getReal() << "+" << c3.getImag() << "i" << std::endl;
+        
+        std::cout << "Resultado: " << c3;
+        
+      	break;
+        
       case 5:
-	    return -1;
+	    return 0;
 	    
 	}
   	
