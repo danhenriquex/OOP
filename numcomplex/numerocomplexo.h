@@ -2,6 +2,7 @@
 #define NUMEROCOMPLEXO_H
 
 #include <iostream>
+#include <cstdlib>
 #include <math.h>
 
 class NumeroComplexo {
@@ -13,7 +14,9 @@ class NumeroComplexo {
    NumeroComplexo operator-( NumeroComplexo& nc );
    NumeroComplexo operator*( NumeroComplexo& nc );
    NumeroComplexo operator/( NumeroComplexo& nc );
-
+   
+   friend std::ostream& operator<<( std::ostream& os, NumeroComplexo& valor );
+   
    void setReal( const float& real ) {this->real_ = real;};
    void setImag( const float& imag ) {this->imag_ = imag;};
    float getReal( void ) const {return this->real_;}
