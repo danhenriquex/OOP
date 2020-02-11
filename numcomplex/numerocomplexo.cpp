@@ -45,8 +45,8 @@ NumeroComplexo NumeroComplexo::operator/( NumeroComplexo& nc ) {
 
   int divisor = (pow(nc.real_, 2) + pow(nc.imag_, 2));
 
-  aux.real_ = (this->real_ * nc.real_ - this->imag_ * -nc.imag_);
-  aux.imag_ = (-this->real_ * nc.imag_ + this->imag_ * nc.real_);
+  aux.real_ = (this->real_ * nc.real_ - this->imag_ * -nc.imag_) / divisor;
+  aux.imag_ = (-this->real_ * nc.imag_ + this->imag_ * nc.real_) / divisor;
 
   return aux;
 }
