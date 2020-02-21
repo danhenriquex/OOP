@@ -12,6 +12,8 @@ bool SinglePlayer::Play( const int& x ) { // pass singleplayer type instead of i
 
   b_->Draw();
 
+  std::clog << "Vez do Jogador( " << x << " )" << std::endl;
+
   b_->Mark( x );
 
   b_->Winner( this->b_ );

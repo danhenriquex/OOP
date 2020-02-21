@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1582240552 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\match.cpp
+1582289894 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\match.cpp
 	"match.h"
 
 1582240552 c:\users\daniel santana\desktop\all\fuckingtabuleiro\match.h
 	"board.h"
 	"singleplayer.h"
 
-1582235303 c:\users\daniel santana\desktop\all\fuckingtabuleiro\board.h
+1582288364 c:\users\daniel santana\desktop\all\fuckingtabuleiro\board.h
 	<iostream>
 	<vector>
 	<algorithm>
@@ -30,17 +30,17 @@
 1582222251 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\player.cpp
 	"player.h"
 
-1582240522 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\main.cpp
+1582240561 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\main.cpp
 	"board.h"
 	"match.h"
 	"teclado.h"
 	<string.h>
 	"singleplayer.h"
 
-1582239119 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\singleplayer.cpp
+1582289241 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\singleplayer.cpp
 	"singleplayer.h"
 
-1582239119 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\board.cpp
+1582289751 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\board.cpp
 	"board.h"
 
 1582222444 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\teclado.cpp
