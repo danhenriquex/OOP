@@ -1,7 +1,8 @@
 #include "match.h"
 
-extern bool test = false;
+bool test = false;
 extern bool draw;
+extern bool fim;
 extern int d;
 
 Match::Match( void )
@@ -47,11 +48,11 @@ void Match::Start( Board* b ) {
 
     }
 
-    if (d == 9) {
-        std::clog << "Deu velha" << std::endl;
+    if ( d == 9 ) {
+        printf("empate");
+        exit(1);
         break;
     }
-
 
   }
 

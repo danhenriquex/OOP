@@ -1,8 +1,8 @@
 #include "board.h"
 
 extern bool test;
-extern bool draw = false;
-extern int d = 0;
+bool draw = false;
+int d = 0;
 
 Board::Board( void ) {
 
@@ -27,15 +27,11 @@ bool Board::Winner( Board* b ) {
 
   if (soma_dg1 == 3) {
 
-    //std::clog << "Player 2(O) won." << std::endl;
-
     test = true;
 
     return true;
 
   }else if (soma_dg1 == 12) {
-
-    //std::clog << "Player 1(X) Won." << std::endl;
 
     test = true;
 
@@ -53,15 +49,11 @@ bool Board::Winner( Board* b ) {
 
   if (soma_dg2 == 3) {
 
-    //std::clog << "Player 2(O) won." << std::endl;
-
     test = true;
 
     return true;
 
   }else if (soma_dg2 == 12) {
-
-    //std::clog << "Player 1(X) Won." << std::endl;
 
     test = true;
 
@@ -81,15 +73,11 @@ bool Board::Winner( Board* b ) {
 
     if (aux == 3) {
 
-      //std::clog << "Player 2(O) Won." << std::endl;
-
       test = true;
 
       return true;
 
     }else if (aux == 12) {
-
-      //std::clog << "Player 1(X) Won." << std::endl;
 
       test = true;
 
@@ -113,15 +101,11 @@ bool Board::Winner( Board* b ) {
 
     if (aux1 == 3) {
 
-      //std::clog << "Player 2(O) Won." << std::endl;
-
       test  = true;
 
       return true;
 
     }else if (aux1 == 12) {
-
-      //std::clog << "Player 1(X) Won." << std::endl;
 
       test = true;
 
@@ -133,7 +117,6 @@ bool Board::Winner( Board* b ) {
 
   }
 
-  // return false;
 }
 
 void Board::Draw( void ) {
@@ -193,33 +176,6 @@ void Board::Draw( void ) {
 
 }
 
-bool Board::Logic( const int& x ) {
-
-  if (this->matrix_[mark_x][mark_y] == 4) {
-
-        return false;
-
-    }else if (this->matrix_[mark_x][mark_y] == 1) {
-
-        return false;
-
-    }else if (this->matrix_[mark_x][mark_y] == 0) {
-
-       if (x == 1) {
-         this->matrix_[mark_x][mark_y] = 1;
-         draw = false;
-         ++d;
-         return true;
-       }else if (x == 4) {
-         this->matrix_[mark_x][mark_y] = 4;
-         draw = true;
-         ++d;
-         return true;
-       }
-
-}
-}
-
 void Board::Mark( const int& x ) {
 
   int comando = pega_comando_teclado();
@@ -239,18 +195,19 @@ void Board::Mark( const int& x ) {
 
        if (x == 1) {
          this->matrix_[mark_x][mark_y] = 1;
-         ++d;
+
          draw = false;
-         //return true;
+         ++d;
+
        }else if (x == 4) {
          this->matrix_[mark_x][mark_y] = 4;
-         ++d;
+
          draw = true;
-         //return true;
+         ++d;
+
        }
 
 }
-    //return true;
     break;
 
   case UP:

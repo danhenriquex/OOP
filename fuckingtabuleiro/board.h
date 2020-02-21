@@ -17,7 +17,6 @@ class Board {
 
    void Draw( void ); // Exibição do tabuleiro
    void Mark( const int& x ); // boleano
-   bool Logic( const int& x ); // boleano
    bool Winner( Board* b );
 
    friend class Match; // Classe que vai dizer se há um ganhandor ou não.

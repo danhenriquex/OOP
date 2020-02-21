@@ -10,8 +10,6 @@ class SinglePlayer : public Player{
    SinglePlayer( Board* b, const int& type );
 
    bool Play( const int& x );
-   void setBoard( Board* b ) {this->b_ = b;}
-   Board* getBoard( void ) { return this->b_;}
 
    Board* b_;
 
