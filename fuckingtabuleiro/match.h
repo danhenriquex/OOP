@@ -12,9 +12,6 @@ class Match {
    bool Winner( const Board& b );
    void Start( Board* b );
 
-   void addPlayer1( Player* x ) {this->x1 = x;}
-   void addPlayer2( Player* y ) {this->x2 = y;}
-
    friend class Board;
 
   //  Board* getBoard( void ) {return this->b;}

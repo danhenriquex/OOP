@@ -8,6 +8,7 @@
 int main( void ) {
 
   Board b;
+
   Player* x1 = new SinglePlayer( &b, 4 );
   Player* x2 = new SinglePlayer( &b, 1 );
 

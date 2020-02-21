@@ -49,8 +49,9 @@ void Match::Start( Board* b ) {
     }
 
     if ( d == 9 ) {
-        printf("empate");
-        exit(1);
+        std::clog << "======================" << std::endl;
+        std::clog << "\t EMPATE" << std::endl;
+        std::clog << "======================" << std::endl;
         break;
     }
 

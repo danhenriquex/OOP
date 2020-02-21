@@ -46,7 +46,7 @@
 1582222444 source:c:\users\daniel santana\desktop\all\fuckingtabuleiro\teclado.cpp
 	"teclado.h"
 
-1582292304 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\board.cpp
+1582293722 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\board.cpp
 	"board.h"
 
 1582291126 c:\users\aluno\downloads\oop-master\fuckingtabuleiro\board.h
@@ -66,14 +66,14 @@
 	<conio.h>
 	<stdlib.h>
 
-1582272244 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\main.cpp
+1582293697 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\main.cpp
 	"board.h"
 	"match.h"
 	"teclado.h"
 	<string.h>
 	"singleplayer.h"
 
-1582272244 c:\users\aluno\downloads\oop-master\fuckingtabuleiro\match.h
+1582293539 c:\users\aluno\downloads\oop-master\fuckingtabuleiro\match.h
 	"board.h"
 	"singleplayer.h"
 
@@ -81,7 +81,7 @@
 	"player.h"
 	"board.h"
 
-1582292848 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\match.cpp
+1582293539 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\match.cpp
 	"match.h"
 
 1582272244 source:c:\users\aluno\downloads\oop-master\fuckingtabuleiro\player.cpp
