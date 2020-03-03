@@ -5,7 +5,7 @@
 
 class Player {
  public:
-   virtual void Play(void ) = 0;
+   virtual bool Play(void ) = 0;
 
  /*protected:
    int type_;

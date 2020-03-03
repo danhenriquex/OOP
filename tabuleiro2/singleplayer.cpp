@@ -80,7 +80,7 @@ void SinglePlayer::Mark( const int& mark_x, const int& mark_y, const int& type )
 
 }
 
-void SinglePlayer::Play( void ) { // pass singleplayer type instead of int x
+bool SinglePlayer::Play( void ) { // pass singleplayer type instead of int x
 
   b_->Draw();
 

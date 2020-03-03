@@ -8,9 +8,10 @@ class SmartPlayer : public Player {
  public:
    SmartPlayer( class Board* b, const int& type );
 
-   void Game( Player* sp );
-   void Play( void );
-   bool Mark( const int& x, const int& y , Player* sp );
+   bool IAvictory( Board* b );
+   bool getMove( Board* b );
+   bool Play( void );
+   bool Mark( const int& x, const int& y , const int& type );
 
    friend class Board;
 

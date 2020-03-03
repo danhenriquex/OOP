@@ -1,77 +1,191 @@
-  /*int cantos = 0;
-  int centros = 0;
+#include "smartplayer.h"
+
+extern bool draw;
+bool first_play = true;
+
+SmartPlayer::SmartPlayer( class Board* b, const int& type )
+    : b_(b), type_(type)
+
+{}
+
+void SmartPlayer::Play( void ) {
+
+  b_->Draw();
+
+  Mark( b_->mark_x, b_->mark_y, type_ );
+
+  b_->Winner( b_ );
+
+}
+
+bool SmartPlayer::Mark( const int& x, const int& y , const int& type ) {
+
+  int soma = 0;
 
   if (first_play == true) {
 
-    if (b_->matrix_[0][0] == type_) {
-
-      b_->matrix_[0][1] == 1;
-      first_play = false;
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[0][2] == 4) {
-
-      b_->matrix_[1][0] = type_;
-      first_play = false;
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[2][0] == 4) { // Lembrar de fazer o first_play = false para n entrar mais nos if
-
-      b_->matrix_[1][2] = 1;
-      first_play = false;
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[2][2] == 4) {
-
-      b_->matrix_[0][1] = 1;
-      first_play = false;
-      draw = false;
-      return true;
-
-    }
-
-    if (b_->matrix_[1][1] == 4) {
-
-      b_->matrix_[0][1] = 1;
-      first_play = false;
-      draw = false;
-
-    }else if (b_->matrix_[0][1] == 4) {
-
-      b_->matrix_[1][2] = 1;
-      first_play = false;
-      draw = false;
-
-    }else if (b_->matrix_[2][1] == 4) {
-
-      b_->matrix_[0][0] = 1;
-      first_play = false;
-      draw = false;
-
-    }else if (b_->matrix_[1][0] == 4) {
+    if (b_->matrix_[1][0] == 4) {
 
       b_->matrix_[0][2] = 1;
-      first_play = false;
-      draw = false;
 
-    }else if (b_->matrix_[1][2] == 4) {
-
-      b_->matrix_[2][1] = 1;
-      first_play = false;
       draw = false;
+      first_play = false;
+      return true;
+
+    }else if (b_->matrix_[0][0] == 4) {
+
+      b_->matrix_[1][2] = 1;
+      draw = false;
+      first_play = false;
+      return true;
 
     }
-
-    //b_->matrix_[1][1] = 1;
 
   }
 
-    // Para linhas esquerdas
-   
-    if (b_->matrix_[2][0] == 4 && b_->matrix_[2][1] == 4 && b_->matrix_[2][2] == 0) {
+  for (int i = 0; i < b_->size_; ++i) { // Primeira linha
+
+    soma = soma + b_->matrix_[0][i];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[0][0] == 0) {
+
+      b_->matrix_[0][0] = 1;
+      
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[0][1] == 0) {
+
+      b_->matrix_[0][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[0][2] == 0) {
+
+      b_->matrix_[0][2] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+  }else if (soma == 2) {
+    
+    if (b_->matrix_[0][0] == 0) {
+
+      b_->matrix_[0][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[0][1] == 0) {
+
+      b_->matrix_[0][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[0][2] == 0) {
+
+      b_->matrix_[0][2] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+  }
+
+  soma = 0;
+
+  for (int i = 0; i < b_->size_; ++i) { // Segunda linha
+
+    soma = soma + b_->matrix_[1][i];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[1][0] == 0) {
+
+      b_->matrix_[1][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][1] == 0) {
+
+      b_->matrix_[1][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][2] == 0) {
+
+      b_->matrix_[1][2] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+  }else if (soma == 2) {
+
+    if (b_->matrix_[1][0] == 0) {
+
+      b_->matrix_[1][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][1] == 0) {
+
+      b_->matrix_[1][1] = 1;
+
+      draw = false;
+      return true;
+      
+    }else if (b_->matrix_[1][2] == 0) {
+
+      b_->matrix_[1][2] = 1;
+      
+      draw = false;
+      return true;
+
+    }
+
+  }
+
+  soma = 0;
+
+  for (int i = 0; i < b_->size_; ++i) { // terceira linha
+
+    soma = soma + b_->matrix_[2][i];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[2][0] == 0) {
+
+      b_->matrix_[2][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][1] == 0) {
+
+      b_->matrix_[2][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == 0) {
 
       b_->matrix_[2][2] = 1;
 
@@ -80,98 +194,212 @@
 
     }
 
-    if (b_->matrix_[1][0] == 4 && b_->matrix_[1][1] == 4 && b_->matrix_[1][2] == 0) {
+  }else if(soma == 2) {
 
-      b_->matrix_[1][2] = 1;
-      
+    if (b_->matrix_[2][0] == 0) {
+
+      b_->matrix_[2][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][1] == 0) {
+
+      b_->matrix_[2][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == 0) {
+
+      b_->matrix_[2][2] = 1;
+
       draw = false;
       return true;
 
     }
-    
-    if (b_->matrix_[0][0] == 4 && b_->matrix_[0][1] == 4 && b_->matrix_[0][2] == 0) {
+
+  }
+
+  soma = 0;
+
+  for (int i = 0; i < b_->size_; ++i) { // Primeira coluna
+
+    soma = soma + b_->matrix_[i][0];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[0][0] == 0) {
+
+      b_->matrix_[0][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][0] == 0) {
+
+      b_->matrix_[1][0] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == 0) {
+
+      b_->matrix_[2][0] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+  }
+
+  soma = 0;
+
+  for (int i = 0; i < b_->size_; ++i) { // segunda coluna
+
+    soma = soma + b_->matrix_[i][1];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[0][1] == 0) {
+
+      b_->matrix_[0][1] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+    if (b_->matrix_[1][1] == 0) {
+
+      b_->matrix_[1][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][1] == 0) {
+
+      b_->matrix_[2][1] = 1;
+
+      draw = false;
+      return true;
+
+    }
+
+  }
+
+  soma = 0;
+
+  for (int i = 0; i < b_->size_; ++i) { // Terceira coluna
+
+    soma = soma + b_->matrix_[i][2];
+
+  }
+
+  if (soma == 8) {
+
+    if (b_->matrix_[0][2] == 0) {
 
       b_->matrix_[0][2] = 1;
 
       draw = false;
       return true;
 
+    }else if (b_->matrix_[1][2] == 0) {
+
+      b_->matrix_[1][2] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == 0) {
+
+      b_->matrix_[2][2] = 1;
+
+      draw = false;
+      return true;
+
     }
 
-  // para linhas direitas
+  }
 
-  if (b_->matrix_[0][1] == 4 && b_->matrix_[0][2] == 4 && b_->matrix_[0][0] == 0 ) {
+  soma = 0;
 
-    b_->matrix_[0][0] = 1;
+  for (int i = 0; i < b_->size_; ++i) { // diagonal principal
 
-    draw = false;
-    return true;
+    soma = soma + b_->matrix_[i][i];
 
   }
 
-  if (b_->matrix_[1][1] == 4 && b_->matrix_[1][2] == 4 && b_->matrix_[1][0] == 0) {
+  if (soma == 8) {
 
-    b_->matrix_[1][0] = 1;
+    if (b_->matrix_[0][0] == 0) {
 
-    draw = false;
-    return true;
+      b_->matrix_[0][0] = 1;
 
-  }
+      draw = false;
+      return true;
 
-  if (b_->matrix_[2][1] == 4 && b_->matrix_[2][2] == 4 && b_->matrix_[2][0] == 0) {
+    }else if (b_->matrix_[1][1] == 0) {
 
-    b_->matrix_[2][0] = 1;
+      b_->matrix_[1][1] = 1;
 
-    draw = false;
-    return true;
+      draw = false;
+      return true;
 
-  }
+    }else if (b_->matrix_[2][2] == 0) {
 
-  // linha alternada
+      b_->matrix_[2][2] = 1;
 
-  if (b_->matrix_[0][0] == 4 && b_->matrix_[0][2] == 4 && b_->matrix_[0][1] == 0) {
+      draw = false;
+      return true;
 
-    b_->matrix_[0][1] = 1;
-
-    draw = false;
-    return true;
+    }
 
   }
 
-  if (b_->matrix_[1][0] == 4 && b_->matrix_[1][2] == 4 && b_->matrix_[1][1] == 0) {
+  soma = 0;
 
-    b_->matrix_[1][1] = 1;
+  int k = 2;
 
-    draw = false;
-    return true;
+  for (int i = 0; i < b_->size_; ++i) { // diagonal secundaria
 
-  }
+    soma = soma + b_->matrix_[i][k];
 
-  if (b_->matrix_[2][0] == 4 && b_->matrix_[2][2] == 4 && b_->matrix_[2][1] == 0) {
-
-    b_->matrix_[2][1] = 1;
-
-    draw = false;
-    return true;
+    --k;
 
   }
 
-  // coluna cima
+  if (soma == 8) {
 
-  if (b_->matrix_[0][0] == 4 && b_->matrix_[1][0] == 4 && b_->matrix_[2][0] == 0) {
+    if (b_->matrix_[0][2] == 0) {
 
-    b_->matrix_[2][0] = 1;
+      b_->matrix_[0][2] = 1;
 
-    draw = false;
-    return true;
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][1] == 0) {
+
+      b_->matrix_[1][1] = 1;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == 0) {
+
+      b_->matrix_[2][0] = 1;
+
+      draw = false;
+      return true;
+
+    }
 
   }
 
-  if (b_->matrix_[0][1] == 4 && b_->matrix_[1][1] == 4 && b_->matrix_[2][1] == 0) {
-
-    b_->matrix_[2][1] = 1;
-
-    draw = false;
-    return true;
-
-  }*/
+}

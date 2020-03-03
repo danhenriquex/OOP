@@ -11,7 +11,7 @@ class SinglePlayer : public Player { //Ajeitar para o singleplayer ter o control
    SinglePlayer( class Board* b );
 
    void Mark( const int& x, const int& y, const int& type ); 
-   void Play( void ); // Mudar a função a player pois ja tenho o type
+   bool Play( void ); // Mudar a função a player pois ja tenho o type
 
    Board* b_;
 

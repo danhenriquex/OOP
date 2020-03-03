@@ -3,6 +3,9 @@
 bool test = false;
 extern bool draw;
 extern int d;
+extern bool first_ia;
+extern bool first_play;
+extern bool seconde_ia;
 
 Match::Match( void )
 
@@ -41,6 +44,8 @@ std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
         printf("\n \t ==== Jogador X ganhou ====\n");
 
+        getch();
+
         test = false;
         d = 0;
         draw = false;
@@ -52,7 +57,7 @@ std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
     if (draw) {
 
-        sp->Game( x1 );
+        sp->Play();
 
          if (test == true) {
 
@@ -60,24 +65,27 @@ std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
             printf("\n \t ===== Jogador O ganhou ====\n");
 
+            getch();
+
             test = false;
             d = 0;
-            draw = true;
+            draw = false;
 
             break;
         }
 
     }
 
-    if (d == 9) {
+    if (d == 5) {
 
         std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
 
         break;
     }
 
-
   }
+
+  first_play = true;
 
 }
 

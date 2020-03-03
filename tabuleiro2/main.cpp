@@ -49,15 +49,6 @@ int main( void ) {
         break;
 
       case 3:
-
-        sp = new SmartPlayer( &b, 4 );
-        sp1 = new SmartPlayer( &b, 1 );
-
-        m = Match( sp, sp1 );
-
-        break;
-
-      case 4:
         return 0;
 
     }
