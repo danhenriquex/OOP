@@ -10,7 +10,6 @@ class Match {
   Match( void );
   Match( Player* x1, Player* x2 );
   Match( Player* x1, SmartPlayer* ia );
-  Match( SmartPlayer* ia, SmartPlayer* ia2 );
 
    bool Winner( const Board& b );
    void StartPVP( Board* b );
@@ -22,7 +21,6 @@ class Match {
    Player* x1;
    Player* x2;
    SmartPlayer* sp;
-   SmartPlayer* sp1;
 
    int mark_x;
    int mark_y;

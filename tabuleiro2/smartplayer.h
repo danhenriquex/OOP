@@ -1,6 +1,8 @@
 #ifndef IA_H
 #define IA_H
 
+#include <unistd.h>
+
 #include "player.h"
 #include "board.h"
 

@@ -3,9 +3,7 @@
 bool test = false;
 extern bool draw;
 extern int d;
-extern bool first_ia;
 extern bool first_play;
-extern bool seconde_ia;
 
 Match::Match( void )
 
@@ -16,23 +14,18 @@ Match::Match( Player* x1, Player* x2 )
 
 {}
 
-Match::Match( Player* x1, SmartPlayer* sp)
+Match::Match( Player* x1, SmartPlayer* sp )
     : x1(x1), sp(sp)
-
-{}
-
-Match::Match( SmartPlayer* p1, SmartPlayer* p2 ) 
-    : sp(p1), sp1(p2)
 
 {}
 
 void Match::StartPVIA( Board* b ){
 
-std::clog << "Aperte enter para comecar o jogo." << std::endl;
+  std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
- getch();
+  getchar();
 
- while (!test) {
+  while (!test) {
 
     if (!draw){
 
@@ -44,7 +37,7 @@ std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
         printf("\n \t ==== Jogador X ganhou ====\n");
 
-        getch();
+        getchar();
 
         test = false;
         d = 0;
@@ -57,30 +50,36 @@ std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
     if (draw) {
 
-        sp->Play();
+      sp->Play();
 
-         if (test == true) {
+      sleep(1);
 
-            b->Draw();
+        if (test == true) {
 
-            printf("\n \t ===== Jogador O ganhou ====\n");
+          b->Draw();
 
-            getch();
+          printf("\n \t ===== Jogador O ganhou ====\n");
 
-            test = false;
-            d = 0;
-            draw = false;
+          getchar();
 
-            break;
-        }
+          test = false;
+          d = 0;
+          draw = false;
+
+          break;
+      }
 
     }
 
     if (d == 5) {
 
-        std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
+      std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
 
-        break;
+      test = false;
+      d = 0;
+      draw = false;
+
+      break;
     }
 
   }
@@ -93,7 +92,7 @@ void Match::StartPVP( Board* b ) {
 
  std::clog << "Aperte enter para comecar o jogo." << std::endl;
 
- getch();
+ getchar();
 
  while (!test) {
 
@@ -128,7 +127,7 @@ void Match::StartPVP( Board* b ) {
 
             test = false;
             d = 0;
-            draw = true;
+            draw = false;
 
             break;
         }
@@ -138,6 +137,10 @@ void Match::StartPVP( Board* b ) {
     if (d == 9) {
 
         std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
+
+	    test = false;
+        d = 0;
+        draw = false;
 
         break;
     }

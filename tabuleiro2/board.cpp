@@ -120,7 +120,7 @@ bool Board::Winner( Board* b ) {
 
 void Board::Draw( void ) {
 
-  system( "cls" );
+  system( "clear" );
 
   for (int i = 0; i < this->size_; ++i) {
 

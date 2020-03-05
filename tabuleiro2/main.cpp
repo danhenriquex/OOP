@@ -13,10 +13,7 @@ int main( void ) {
     Player* x1;
     Player* x2;
     SmartPlayer* sp;
-    SmartPlayer* sp1;
     Match m;
-
-    int tipo, tipo1;
 
     switch (op) {
 

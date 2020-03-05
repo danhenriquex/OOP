@@ -2,7 +2,7 @@
 #define TECLADO_H
 
 #include <stdio.h>
-#include <conio.h>
+//#include <conio.h>
 #include<stdlib.h>
 
 #define UNKNOWN -1
