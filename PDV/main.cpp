@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main(void) {
+int main( void ) {
 
   Estoque e;
   Loja j;

@@ -27,7 +27,7 @@ void Loja::MostraClientes( void ) {
 
   }
 
-  if (this->clientes_.size() == 0) {
+  if (this->clientes_.empty()) {
 
     std::clog << "=============== Sem Cadastro ================" << std::endl;
     std::clog << "\t Nao ha clientes cadastrados" << std::endl;
@@ -89,7 +89,7 @@ void Loja::ClienteRoupa( const std::string& cliente ) {
 
   }
 
-  if (this->vendas_.size() == 0) {
+  if (this->vendas_.empty()) {
 
     std::clog << "===========================================" << std::endl;
     std::clog << "\t Sem registro de vendas" << std::endl;  
@@ -117,7 +117,7 @@ void Loja::RoupaCliente( const int& id ) {
 
   }
 
-  if (this->vendas_.size() == 0) {
+  if (this->vendas_.empty()) {
 
     std::clog << "===========================================" << std::endl;
     std::clog << "\t Sem registro de vendas" << std::endl;  

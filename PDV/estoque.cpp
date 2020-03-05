@@ -25,7 +25,7 @@ Roupa* Estoque::getRoupa( const int& id ) {
 
 void Estoque::Exemplares( const int& id ) {
 
-  if (this->roupas_.size() != 0) {
+  if (!this->roupas_.empty()) {
 
     for (unsigned int i = 0; i < this->roupas_.size(); ++i) {
 
@@ -63,7 +63,7 @@ void Estoque::MostraRoupas( void ) {
 
   }
 
-  if (this->roupas_.size() == 0) {
+  if (this->roupas_.empty()) {
 
     std::clog << "=============== Sem Cadastro ================" << std::endl;
     std::clog << "\t Nao ha roupas no estoque" << std::endl;
