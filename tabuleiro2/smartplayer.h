@@ -13,7 +13,7 @@ class SmartPlayer : public Player {
    bool IAvictory( Board* b );
    bool getMove( Board* b );
    bool Play( void );
-   bool Mark( const int& x, const int& y , const int& type );
+   bool Mark( void );
 
    friend class Board;
 
