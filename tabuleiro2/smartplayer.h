@@ -10,18 +10,15 @@ class SmartPlayer : public Player {
  public:
    SmartPlayer( class Board* b, const int& type );
 
-   bool IAvictory( Board* b );
-   bool getMove( Board* b );
+   bool IAvictory( void );
+   bool getMove( void );
    bool Play( void );
    bool Mark( void );
-
-   friend class Board;
 
   private:
 
     Board* b_;
     int type_;
-
 };
 
 #endif // IA_H

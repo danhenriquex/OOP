@@ -5,16 +5,17 @@
 
 #include "board.h"
 
-class SinglePlayer : public Player { //Ajeitar para o singleplayer ter o controle do teclado
+class SinglePlayer : public Player { 
  public:
    SinglePlayer( class Board* b, const int& type );
    SinglePlayer( class Board* b );
 
-   void Mark( const int& x, const int& y, const int& type ); 
-   bool Play( void ); // Mudar a função a player pois ja tenho o type
+   void Mark( void ); 
+   bool Play( void ); 
+
+ private:
 
    Board* b_;
-
    int type_;
 };
 

@@ -1,7 +1,6 @@
 #include "smartplayer.h"
 
 extern bool draw;
-bool first_play = true;
 extern int d;
 
 SmartPlayer::SmartPlayer( class Board* b, const int& type )
@@ -13,7 +12,7 @@ bool SmartPlayer::Play( void ) {
 
   b_->Draw();
 
-  if (IAvictory( b_ ) == true) {
+  if (IAvictory() == true) {
 
     b_->Winner( b_ );
 
@@ -31,119 +30,115 @@ bool SmartPlayer::Play( void ) {
 
 }
 
-bool SmartPlayer::getMove( Board* b ) {
+bool SmartPlayer::getMove( void ) { //Decide a posição para jogar
 
   int centro = 0;
   int canto = 0;
 
-  if (b_->matrix_[0][0] == 0) {
+  if (b_->matrix_[1][1] == b_->vazio) {
+
+    b_->matrix_[1][1] = b_->PO;
+
+    draw = false;
+    return true;
+
+  }
+
+  if (b_->matrix_[1][1] == b_->PX && d == 1) {
+
+    b_->matrix_[2][0] = b_->PO;
+
+    draw = false;
+    return true;
+
+  }
+
+  if (b_->matrix_[0][0] == b_->vazio) {
 
     ++canto;
 
   }
   
-  if (b_->matrix_[0][2] == 0) {
+  if (b_->matrix_[0][2] == b_->vazio) {
 
     ++canto;
 
   }
   
-  if (b_->matrix_[2][0] == 0) {
+  if (b_->matrix_[2][0] == b_->vazio) {
 
     ++canto;
 
   }
   
-  if (b_->matrix_[2][2] == 0) {
+  if (b_->matrix_[2][2] == b_->vazio) {
 
     ++canto;
 
   }
 
-  if (b_->matrix_[0][1] == 0) {
+  if (b_->matrix_[0][1] == b_->vazio) {
 
     centro = centro + 2;;
 
   }
   
-  if (b_->matrix_[1][1] == 0) {
+  if (b_->matrix_[1][1] == b_->vazio) {
 
     centro = centro + 2;
 
   }
   
-  if (b_->matrix_[1][0] == 0) {
+  if (b_->matrix_[1][0] == b_->vazio) {
 
     centro = centro + 2;
 
   }
   
-  if (b_->matrix_[1][2] == 0) {
+  if (b_->matrix_[1][2] == b_->vazio) {
 
     centro = centro + 2;
 
   }
   
-  if (b_->matrix_[2][1] == 0) {
+  if (b_->matrix_[2][1] == b_->vazio) {
 
     centro = centro + 2;
 
   }
 
-  if (b_->matrix_[2][1] == 4 && b_->matrix_[0][0] == 4 && d == 2) {
+  if (b_->matrix_[2][1] == b_->PX && b_->matrix_[0][0] == b_->PX && d == 2) {
 
-    b_->matrix_[1][0] = 1;
+    b_->matrix_[1][0] = b_->PO;
 
     draw = false;
     return true;
 
   }
 
-  if (b_->matrix_[1][1] == 4 && b_->matrix_[0][2] == 4 && b_->matrix_[2][0] == 1 && d == 2) {
+  if (b_->matrix_[1][1] == b_->PX && b_->matrix_[0][2] == b_->PX && b_->matrix_[2][0] == b_->PO && d == 2) {
 
-    b_->matrix_[2][2] = 1;
+    b_->matrix_[2][2] = b_->PO;
 
     draw = false;
     return true;
 
   }
 
-  if (b_->matrix_[0][1] == 4 && b_->matrix_[1][1] == 1 && d == 2) {
+  if (b_->matrix_[0][1] == b_->PX && b_->matrix_[1][1] == 1 && d == 2) {
 
-    if (b_->matrix_[2][0] == 4) {
+    if (b_->matrix_[2][0] == b_->PX) {
 
-      b_->matrix_[1][2] = 1;
-
-      draw = false;
-      return true;
-
-    }
-
-    if (b_->matrix_[2][2] == 4) {
-
-      b_->matrix_[1][0] = 1;
+      b_->matrix_[1][2] = b_->PO;
 
       draw = false;
       return true;
 
     }
 
-  }
+    if (b_->matrix_[2][2] == b_->PX) {
 
-  if (b_->matrix_[1][0] == 4 && b_->matrix_[0][2] == 4 && d == 2) {
-
-    if (b_->matrix_[0][2] == 4) {
-
-      b_->matrix_[2][1] = 1;
-
-      draw = false;
-      return true;
-
-    }
-
-    if (b_->matrix_[2][2] == 4) {
-
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[1][0] = b_->PO;
 
       draw = false;
       return true;
@@ -152,11 +147,20 @@ bool SmartPlayer::getMove( Board* b ) {
 
   }
 
-  if (b_->matrix_[0][0] == 4 && b_->matrix_[1][2] == 4 && d == 2) {
+  if (b_->matrix_[1][0] == b_->PX && b_->matrix_[0][2] == b_->PX && d == 2) {
 
-    if (b_->matrix_[0][0] == 4) {
+    if (b_->matrix_[0][2] == b_->PX) {
 
-      b_->matrix_[2][1] = 1;
+      b_->matrix_[2][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }
+
+    if (b_->matrix_[2][2] == b_->PX) {
+
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
@@ -165,9 +169,22 @@ bool SmartPlayer::getMove( Board* b ) {
 
   }
 
-  if (b_->matrix_[0][2] == 4 && b_->matrix_[2][1] == 4 && d == 2) {
+  if (b_->matrix_[0][0] == b_->PX && b_->matrix_[1][2] == b_->PX && d == 2) {
 
-    b_->matrix_[1][2] = 1;
+    if (b_->matrix_[0][0] == b_->PX) {
+
+      b_->matrix_[2][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }
+
+  }
+
+  if (b_->matrix_[0][2] == b_->PX && b_->matrix_[2][1] == b_->PX && d == 2) {
+
+    b_->matrix_[1][2] = b_->PO;
 
     draw = false;
     return true;
@@ -176,30 +193,30 @@ bool SmartPlayer::getMove( Board* b ) {
 
   if (canto >= centro) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
       
       draw = false;
       return true;
 
-    }else if (b_->matrix_[0][2] == 0) {
+    }else if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[2][0] == 0) {
-
-      b_->matrix_[2][0] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[2][0] == b_->vazio) {
 
-      b_->matrix_[2][2];
+      b_->matrix_[2][0] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;  
@@ -210,53 +227,53 @@ bool SmartPlayer::getMove( Board* b ) {
 
   if (centro > canto) {
 
-    if (b_->matrix_[0][1] == 4 && b_->matrix_[2][2] == 4 && b_->matrix_[1][0] == 1) {
+    if (b_->matrix_[0][1] == b_->PX && b_->matrix_[2][2] == b_->PX && b_->matrix_[1][0] == b_->PO) {
 
-      b_->matrix_[0][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
 
       draw = false;
       return true;
 
     }
 
-    if (b_->matrix_[0][1] == 0 && b_->matrix_[1][0] == 4 && b_->matrix_[2][2] == 4) {
+    if (b_->matrix_[0][1] == b_->vazio && b_->matrix_[1][0] == b_->PX && b_->matrix_[2][2] == b_->PX) {
 
-      b_->matrix_[2][1] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[0][1] == 0) {
-
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[2][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][1] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[2][1] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][0] == 0) {
-
-      b_->matrix_[1][0] = 1;
+      b_->matrix_[1][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[1][2] == 0) {
+    }else if (b_->matrix_[2][1] == b_->vazio) {
 
-      b_->matrix_[1][2] = 1;
+      b_->matrix_[2][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[1][1] == 0) {
+    }else if (b_->matrix_[1][0] == b_->vazio) {
 
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[1][0] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][2] == b_->vazio) {
+
+      b_->matrix_[1][2] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[0][1] == b_->vazio) {
+
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
@@ -269,7 +286,7 @@ bool SmartPlayer::getMove( Board* b ) {
 
 }
 
-bool SmartPlayer::IAvictory( Board* b ) {
+bool SmartPlayer::IAvictory( void ) { // Joga na posição onde "O" pode ganhar.
 
   int soma = 0;
 
@@ -281,23 +298,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
       
       draw = false;
       return true;
 
-    }else if (b_->matrix_[0][1] == 0) {
+    }else if (b_->matrix_[0][1] == b_->vazio) {
 
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[0][2] == 0) {
+    }else if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
@@ -316,23 +333,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[1][0] == 0) {
+    if (b_->matrix_[1][0] == b_->vazio) {
 
-      b_->matrix_[1][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[1][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[1][2] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[1][2] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][2] == b_->vazio) {
+
+      b_->matrix_[1][2] = b_->PO;
 
       draw = false;
       return true;
@@ -351,23 +368,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[2][0] == 0) {
+    if (b_->matrix_[2][0] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[2][1] == 0) {
-
-      b_->matrix_[2][1] = 1;
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[2][1] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[2][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -386,23 +403,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][0] == 0) {
-
-      b_->matrix_[1][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][0] == 0) {
+    }else if (b_->matrix_[1][0] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
+      b_->matrix_[1][0] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == b_->vazio) {
+
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
@@ -421,25 +438,25 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][1] == 0) {
+    if (b_->matrix_[0][1] == b_->vazio) {
 
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
 
     }
 
-    if (b_->matrix_[1][1] == 0) {
+    if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[1][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][1] == 0) {
+    }else if (b_->matrix_[2][1] == b_->vazio) {
 
-      b_->matrix_[2][1] = 1;
+      b_->matrix_[2][1] = b_->PO;
 
       draw = false;
       return true;
@@ -458,23 +475,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][2] == 0) {
+    if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][2] == 0) {
-
-      b_->matrix_[1][2] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[1][2] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[1][2] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -493,23 +510,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[0][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -532,23 +549,23 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
   if (soma == 2) {
 
-    if (b_->matrix_[0][2] == 0) {
+    if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][0] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == b_->vazio) {
+
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
@@ -561,87 +578,11 @@ bool SmartPlayer::IAvictory( Board* b ) {
 
 }
 
-bool SmartPlayer::Mark( void ) {
+bool SmartPlayer::Mark( void ) { // Joga na casa em que o "X" pode ganhar
 
   int soma = 0;
 
-  if (first_play == true) {
 
-    if (b_->matrix_[1][1] == 4) { //
-
-      b_->matrix_[2][0] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[0][0] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[2][0] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[2][2] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[0][1] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[2][1] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[0][2] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[1][2] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }else if (b_->matrix_[1][0] == 4) {
-
-      b_->matrix_[1][1] = 1;
-
-      draw = false;
-      first_play = false;
-      return true;
-
-    }
-
-  }
 
   for (int i = 0; i < b_->size_; ++i) { // Primeira linha
 
@@ -651,23 +592,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
       
       draw = false;
       return true;
 
-    }else if (b_->matrix_[0][1] == 0) {
+    }else if (b_->matrix_[0][1] == b_->vazio) {
 
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[0][2] == 0) {
+    }else if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
@@ -686,23 +627,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[1][0] == 0) {
+    if (b_->matrix_[1][0] == b_->vazio) {
 
-      b_->matrix_[1][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[1][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[1][2] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[1][2] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[1][2] == b_->vazio) {
+
+      b_->matrix_[1][2] = b_->PO;
 
       draw = false;
       return true;
@@ -721,23 +662,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[2][0] == 0) {
+    if (b_->matrix_[2][0] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[2][1] == 0) {
-
-      b_->matrix_[2][1] = 1;
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[2][1] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[2][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -756,23 +697,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][0] == 0) {
-
-      b_->matrix_[1][0] = 1;
+      b_->matrix_[0][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][0] == 0) {
+    }else if (b_->matrix_[1][0] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
+      b_->matrix_[1][0] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == b_->vazio) {
+
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
@@ -791,25 +732,25 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][1] == 0) {
+    if (b_->matrix_[0][1] == b_->vazio) {
 
-      b_->matrix_[0][1] = 1;
+      b_->matrix_[0][1] = b_->PO;
 
       draw = false;
       return true;
 
     }
 
-    if (b_->matrix_[1][1] == 0) {
+    if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[1][1] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][1] == 0) {
+    }else if (b_->matrix_[2][1] == b_->vazio) {
 
-      b_->matrix_[2][1] = 1;
+      b_->matrix_[2][1] = b_->PO;
 
       draw = false;
       return true;
@@ -828,23 +769,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][2] == 0) {
+    if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][2] == 0) {
-
-      b_->matrix_[1][2] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[1][2] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[1][2] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -863,23 +804,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][0] == 0) {
+    if (b_->matrix_[0][0] == b_->vazio) {
 
-      b_->matrix_[0][0] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[0][0] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][2] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[2][2] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][2] == b_->vazio) {
+
+      b_->matrix_[2][2] = b_->PO;
 
       draw = false;
       return true;
@@ -902,23 +843,23 @@ bool SmartPlayer::Mark( void ) {
 
   if (soma == 8) {
 
-    if (b_->matrix_[0][2] == 0) {
+    if (b_->matrix_[0][2] == b_->vazio) {
 
-      b_->matrix_[0][2] = 1;
-
-      draw = false;
-      return true;
-
-    }else if (b_->matrix_[1][1] == 0) {
-
-      b_->matrix_[1][1] = 1;
+      b_->matrix_[0][2] = b_->PO;
 
       draw = false;
       return true;
 
-    }else if (b_->matrix_[2][0] == 0) {
+    }else if (b_->matrix_[1][1] == b_->vazio) {
 
-      b_->matrix_[2][0] = 1;
+      b_->matrix_[1][1] = b_->PO;
+
+      draw = false;
+      return true;
+
+    }else if (b_->matrix_[2][0] == b_->vazio) {
+
+      b_->matrix_[2][0] = b_->PO;
 
       draw = false;
       return true;
@@ -927,7 +868,7 @@ bool SmartPlayer::Mark( void ) {
 
   }
 
-  getMove( b_ );
+  getMove();
 
   return false;
 

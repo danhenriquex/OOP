@@ -12,7 +12,7 @@ SinglePlayer::SinglePlayer( class Board* b ) : b_(b)
 
 {}
 
-void SinglePlayer::Mark( const int& mark_x, const int& mark_y, const int& type ) {
+void SinglePlayer::Mark( void ) {
 
   int comando = pega_comando_teclado();
 
@@ -20,23 +20,23 @@ void SinglePlayer::Mark( const int& mark_x, const int& mark_y, const int& type )
 
   case ENTER:
 
-    if (b_->matrix_[mark_x][mark_y] == 4) {
+    if (b_->matrix_[b_->coord_x][b_->coord_y] == b_->PX) {
 
-    }else if (b_->matrix_[mark_x][mark_y] == 1) {
+    }else if (b_->matrix_[b_->coord_x][b_->coord_y] == b_->PO) {
 
-    }else if (b_->matrix_[mark_x][mark_y] == 0) {
+    }else if (b_->matrix_[b_->coord_x][b_->coord_y] == b_->vazio) {
 
-       if (type_ == 1) {
+       if (type_ == b_->PO) {
 
-         b_->matrix_[mark_x][mark_y] = 1;
+         b_->matrix_[b_->coord_x][b_->coord_y] = b_->PO;
 
          ++d;
 
          draw = false;
         
-       }else if (type_ == 4) {
+       }else if (type_ == b_->PX) {
 
-         b_->matrix_[mark_x][mark_y] = 4;
+         b_->matrix_[b_->coord_x][b_->coord_y] = b_->PX;
 
          ++d;
          
@@ -48,30 +48,30 @@ void SinglePlayer::Mark( const int& mark_x, const int& mark_y, const int& type )
     break;
 
   case UP:
-    --b_->mark_x;
+    --b_->coord_x;
 
-    if (b_->mark_x == -1)
-      b_->mark_x = 2;
+    if (b_->coord_x == -1)
+      b_->coord_x = 2;
 
     break;
 
   case LEFT:
-    --b_->mark_y;
-    if (b_->mark_y == -1)
-      b_->mark_y = 2;
+    --b_->coord_y;
+    if (b_->coord_y == -1)
+      b_->coord_y = 2;
 
     break;
 
   case RIGHT:
-    ++b_->mark_y;
-    if (b_->mark_y == 3)
-      b_->mark_y = 0;
+    ++b_->coord_y;
+    if (b_->coord_y == 3)
+      b_->coord_y = 0;
     break;
 
   case DOWN:
-    ++b_->mark_x;
-    if (b_->mark_x == 3)
-      b_->mark_x = 0;
+    ++b_->coord_x;
+    if (b_->coord_x == 3)
+      b_->coord_x = 0;
     break;
 
   default:
@@ -84,18 +84,21 @@ bool SinglePlayer::Play( void ) { // pass singleplayer type instead of int x
 
   b_->Draw();
 
-  if (type_ == 4) {
+  if (type_ == b_->PX) {
 
       std::clog << "Vez do Jogador( X )" << std::endl;
 
-  }else if (type_ == 1) {
+  }else if (type_ == b_->PO) {
 
     std::clog << "Vez do Jogador( O )" << std::endl;
 
   }
 
-  Mark( b_->mark_x, b_->mark_y, type_ );
+  Mark();
 
-  b_->Winner( this->b_ );
+  if (b_->Winner( this->b_ ) == true)
+    return true;
+  else
+    return false;
 
 }

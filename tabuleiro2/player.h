@@ -7,9 +7,6 @@ class Player {
  public:
    virtual bool Play(void ) = 0;
 
- /*protected:
-   int type_;
-   Board* b_;*/
 };
 
 #endif

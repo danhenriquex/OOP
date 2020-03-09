@@ -3,7 +3,10 @@
 
 int pega_comando_teclado()
 {
+    //__fpurge(stdin);
+    //initscr();
     char tecla = getchar();
+    
     /*switch(tecla){
         case 13: return ENTER;
         case 75: return LEFT;

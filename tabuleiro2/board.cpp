@@ -130,7 +130,7 @@ void Board::Draw( void ) {
 
         case 0:
 
-          if (this->mark_x == i && this->mark_y == j) {
+          if (this->coord_x == i && this->coord_y == j) {
             std::clog << "[ ]";
           }else {
             std::clog << "   ";
@@ -138,7 +138,7 @@ void Board::Draw( void ) {
           break;
 
         case 1:
-          if (this->mark_x == i && this->mark_y == j) {
+          if (this->coord_x == i && this->coord_y == j) {
             std::clog << "[O]";
           }else {
             std::clog << " O ";
@@ -146,7 +146,7 @@ void Board::Draw( void ) {
           break;
 
         case 4:
-          if (this->mark_x == i && this->mark_y == j) {
+          if (this->coord_x == i && this->coord_y == j) {
             std::clog << "[X]";
           }else {
             std::clog << " X ";

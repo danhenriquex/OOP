@@ -3,7 +3,6 @@
 bool test = false;
 extern bool draw;
 extern int d;
-extern bool first_play;
 
 Match::Match( void )
 
@@ -21,7 +20,7 @@ Match::Match( Player* x1, SmartPlayer* sp )
 
 void Match::StartPVIA( Board* b ){
 
-  std::clog << "Aperte enter para comecar o jogo." << std::endl;
+  std::clog << "===== Aperte enter para comecar o jogo =====" << std::endl;
 
   getchar();
 
@@ -52,13 +51,13 @@ void Match::StartPVIA( Board* b ){
 
       sp->Play();
 
-      // sleep(1);
+      sleep(1);
 
         if (test == true) {
 
           b->Draw();
 
-          printf("\n \t ===== Jogador O ganhou ====\n");
+          printf("\n \t ===== Jogador O ganhou =====\n");
 
           getchar();
 
@@ -75,6 +74,8 @@ void Match::StartPVIA( Board* b ){
 
       std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
 
+      getchar();
+
       test = false;
       d = 0;
       draw = false;
@@ -84,17 +85,15 @@ void Match::StartPVIA( Board* b ){
 
   }
 
-  first_play = true;
-
 }
 
 void Match::StartPVP( Board* b ) {
 
- std::clog << "Aperte enter para comecar o jogo." << std::endl;
+  std::clog << "===== Aperte enter para comecar o jogo =====" << std::endl;
 
- getchar();
+  getchar();
 
- while (!test) {
+  while (!test) {
 
     if (!draw){
 
@@ -106,45 +105,52 @@ void Match::StartPVP( Board* b ) {
 
         printf("\n \t ==== Jogador X ganhou ====\n");
 
+	      getchar();
+
         test = false;
         d = 0;
         draw = false;
 
         break;
-    }
+
+      }
 
     }
 
     if (draw) {
 
-        x2->Play();
+      x2->Play();
 
-         if (test == true) {
+      if (test == true) {
 
-            b->Draw();
+        b->Draw();
 
-            printf("\n \t ===== Jogador O ganhou ====\n");
+        printf("\n \t ===== Jogador O ganhou ====\n");
+		
+	      getchar();
 
-            test = false;
-            d = 0;
-            draw = false;
+        test = false;
+        d = 0;
+        draw = false;
 
-            break;
-        }
+        break;
+
+      }
 
     }
 
     if (d == 9) {
 
-        std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
+      std::clog << "\n \t ===== Deu velha =====\n" << std::endl;
 
-	    test = false;
-        d = 0;
-        draw = false;
+	    getchar();
 
-        break;
+      test = false;
+      d = 0;
+      draw = false;
+
+      break;
     }
-
 
   }
 

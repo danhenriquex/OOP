@@ -26,9 +26,6 @@ int main( void ) {
 
         m.StartPVP( &b );
 
-        free( x1 );
-        free( x2 );
-
         break;
       
       case 2:
@@ -40,13 +37,14 @@ int main( void ) {
 
         m.StartPVIA( &b );
 
-        free( x1 );
-        free( sp );
-
         break;
 
       case 3:
         return 0;
+
+      default:
+        std::clog << "Opcao errada. Tente novamente." << std::endl;
+        break;
 
     }
   }

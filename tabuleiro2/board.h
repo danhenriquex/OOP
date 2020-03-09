@@ -20,8 +20,6 @@ class Board {
    void Draw( void ); // Exibição do tabuleiro
    bool Winner( Board* b );
 
-   friend class Match; // Classe que vai dizer se há um ganhandor ou não.
-   friend class IA;
    friend class SinglePlayer;
    friend class SmartPlayer;
 
@@ -29,12 +27,12 @@ class Board {
    std::vector< std::vector<int> > matrix_; // Estrutura de dados que representa o tabuleiro
 
  private:
-   const int empty_ = 0;
-   const int ball_ = 1;
-   const int x_ = 4;
+   const int vazio = 0;
+   const int PO = 1;
+   const int PX = 4;
    const int size_ = 3;
-   int mark_x = 0;
-   int mark_y = 0;
+   int coord_x = 0;
+   int coord_y = 0;
 };
 
 #endif
