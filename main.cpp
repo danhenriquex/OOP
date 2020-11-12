@@ -49,6 +49,8 @@ int main( void ) {
 
   t->Pausar();
 
+  std::cout << "teste" << std::endl;
+
   return 0;
 }
 
