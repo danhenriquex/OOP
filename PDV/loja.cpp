@@ -37,7 +37,16 @@ void Loja::MostraClientes( void ) {
 
 }
 
-void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, const int& qnt_venda ) {
+int Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, const int& qnt_venda ) {
+
+  if (qnt_venda < 0) {
+
+    std::clog << "============================================================" << std::endl;
+    std::clog << "\t A quantidade de itens deve ser positivo." << std::endl;  
+    std::clog << "============================================================" << std::endl;
+    
+    return 0;
+  }
 
   Cliente* c = this->getCliente( nome );
   Roupa* r = e.getRoupa( id );
@@ -58,19 +67,25 @@ void Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, co
       std::clog << "\t Compra feita." << std::endl;
       std::clog << "=========================================" << std::endl;
 
+      return 1;
+
     }else {
 
       std::clog << "=================================================" << std::endl;
       std::clog << "\t Quantidade indisponivel" << std::endl;  
       std::clog << "=================================================" << std::endl;
 
+      return 0;
+
     }  
 
   }
 
+  return 0;
+
 }
 
-void Loja::ClienteRoupa( const std::string& cliente ) {
+void Loja::ClienteRoupa( const std::string& cliente ) { // Quais são os clientes que já compraram uma determinada roupa?
 
   std::clog << "============================================" << std::endl;
   std::cout << "Cliente: " << cliente << std::endl;
@@ -99,7 +114,7 @@ void Loja::ClienteRoupa( const std::string& cliente ) {
   
 }
 
-void Loja::RoupaCliente( const int& id ) {
+void Loja::RoupaCliente( const int& id ) { // Quais foram as roupas comprados por um cliente?
 
   std::clog << "===========================================" << std::endl;
   std::cout << "\t ID da roupa: " << id << std::endl;
@@ -112,6 +127,7 @@ void Loja::RoupaCliente( const int& id ) {
       
       std::clog << "========= Clientes que compraram ==========" << std::endl;
       std::cout << "Nome: " << v->c_.getName() << std::endl;
+      std::clog << "===========================================" << std::endl;
 
     }
 
