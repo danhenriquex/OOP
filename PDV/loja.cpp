@@ -75,8 +75,6 @@ int Loja::CadastraVenda( Estoque& e, const std::string& nome, const int& id, con
       std::clog << "\t Quantidade indisponivel" << std::endl;  
       std::clog << "=================================================" << std::endl;
 
-      return 0;
-
     }  
 
   }
