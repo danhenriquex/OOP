@@ -58,7 +58,7 @@ class ControleDeBonificacoes:
 # de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele).
 
 Cliente = Cliente('Danilo', 21)
-gerente = Gerente('Danilo', '074.525.234-66', 5000.0, 8885, 0)
+gerente = Gerente('Danilo', '034.555.294-88', 5000.0, 8885, 0)
 # Funcionario = Funcionario('Daniel', '074.525.214-12', 2000.0)
 
 # print("Bonificação do Gerente: {}".format(gerente.get_bonificacao()))
