@@ -1,6 +1,6 @@
 # OOP - Oriented Object Programming
 
-Codes using Oriented Object Programming with C++.
+Oriented Object Programming with C++.
 
 The problem's descriptions can be found below: 
 
