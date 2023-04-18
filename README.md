@@ -2,7 +2,7 @@
 
 Codes using Oriented Object Programming with C++.
 
-The description of the problems can be found below: 
+The problem's description can be found below: 
 
 Pdv's problem [here](ROTEIRO_-_PDV.pdf) <br />
 Classes [here](ROTEIRO_-_Classes.pdf). <br />
