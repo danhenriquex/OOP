@@ -8,6 +8,20 @@ Pdv's problem [here](ROTEIRO_-_PDV.pdf) <br />
 Classes [here](ROTEIRO_-_Classes.pdf). <br />
 Bank Account [here](Roteiro_Conta_Poupanca.pdf).
 
+# Content
+
+In this discipline I learned advanced concepts about C++ such as:
+
+1. Variables and Constants
+2. Array and Vectors
+3. Strings
+4. Pointers and Reference
+5. Classes and Objects
+6. Inheritance and Multiple Inheritance
+7. Polymorphism and Virtual Functions
+8. Smart Pointers
+9. The Standard Template Library (STL)
+
 # Compiling and Running
 
 I've compiled and executed this software only in Linux (Mint and Ubuntu). These are the steps needed in order to compile the program:
